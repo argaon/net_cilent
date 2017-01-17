@@ -45,14 +45,14 @@ int main(){
     cout << "연결되었습니다."<<endl;
 	send(Socket,cstr,strlen(cstr),0);	
 
-	char buffer[10000] = {0};
-    int nDataLength;
-    while((nDataLength = recv(Socket,buffer,10000,0)) > 0){        
-        int i = 0;
-		while(buffer[i] >= 32 || buffer[i] == '\n' || buffer[i] == '\r') {		
-			cout << buffer[i];
+	char buffer[100000] = {0};
+    int nDataLength = 0;
+   while((nDataLength = recv(Socket,buffer,100000,0)) > 0){
+		int i = 0;
+		while(buffer[i] !=0) {		
+		cout << buffer[i];
 			i += 1;
-        }
+		}
     }
     closesocket(Socket);
     WSACleanup();
