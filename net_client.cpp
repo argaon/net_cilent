@@ -14,6 +14,8 @@ int main(int argc, char* argv[]){
         return 1;
     }		
 	char *i_url[100];
+	*i_url = argv[1];
+
 	string firstorder ="GET / HTTP/1.1\r\nHost:";
 	string lastorder ="\r\nConnection: close\r\n\r\n";
 	string o_url;
